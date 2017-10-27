@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Service Student Account</title>
+  <meta name="description" value="Service Student Account">
+  <!-- Include Styles -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- Start Container -->
+  <div class="container">
+    <!-- Start Header -->
+    <div class="row" id="header">
+      <!-- logo -->
+      <div class="col-xs-8">
+        <h1>Service Student Account</h1>
+      </div>
+      <!-- Groups Selector -->
+      <div class="col-xs-4" id="group-selector">
+        <div class="col-xs-4" id="group-selector">
+          <strong>Groug:</strong>
+          <select>
+            <option value="">All Students</option>
+            <option value="">MTM - 21, Podoba Vitaliy (N 254)</option>
+            <option value="">MTM - 22, Korost Andriy (N 2123)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- Start SubHeader -->
+    <div class="row" id="sub-header">
+      <div class="col-xs-12">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active" role="presentation"><a href="/">Students</a></li>
+          <li role="presentation"><a href="/journal">Journal</a></li>
+          <li role="presentation"><a href="{% url 'groups' %}">Groups</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Start Main Pga Content -->
+    <div class="row" id="content-columns">
+      <div class="col-xs-12" id="content-column">
+        <!-- Status Message -->
+        <div class="alert alert-warning">Changes have been canceled.</div>
+        <h2>Student base</h2>
+        <a href="{% url 'students_add' %}" class="btn btn-primary">Add Student</a>
+        <div>This will be table students</div>
+        <!-- Start Students Listing -->
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>N</th>
+              <th>Photo</th>
+              <th>Last name &uarr;</th>
+              <th>Name</th>
+              <th>N billet</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><img src="img/me.jpeg" alt="photo" height="30" width="30" class="img-circle"></td>
+              <td><a href="{% url 'students_edit' 1 %}" title="Edit">Korost</a></td>
+              <td><a href="{% url 'students_edit' 1 %}" title="Edit">Andriy</a></td>
+              <td>2123</td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle='dropdown'>Actions</button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li role="presentation"><a href="/journal/1" role="menuitem" tabindex="-1">Journal</a></li>
+                    <li role="presentation"><a href="{% url 'students_edit' 1 %}" role="menuitem" tabindex="-1">Edit</a></li>
+                    <li role="presentation"><a href="{% url 'students_delete' 1 %}" role="menuitem" tabindex="-1">Delete</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><img src="img/me.jpeg" alt="photo" height="30" width="30" class="img-circle"></td>
+              <td><a href="#" title="Edit">Korost</a></td>
+              <td><a href="#" title="Edit">Andriy</a></td>
+              <td>2123</td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle='dropdown'>Actions</button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li role="presentation"><a href="#" role="menuitem" tabindex="-1">Visiting</a></li>
+                    <li role="presentation"><a href="#" role="menuitem" tabindex="-1">Edit</a></li>
+                    <li role="presentation"><a href="#" role="menuitem" tabindex="-1">Delete</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><img src="img/me.jpeg" alt="photo" height="30" width="30" class="img-circle"></td>
+              <td><a href="#" title="Edit">Korost</a></td>
+              <td><a href="#" title="Edit">Andriy</a></td>
+              <td>2123</td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle='dropdown'>Actions</button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li role="presentation"><a href="#" role="menuitem" tabindex="-1">Visiting</a></li>
+                    <li role="presentation"><a href="#" role="menuitem" tabindex="-1">Edit</a></li>
+                    <li role="presentation"><a href="#" role="menuitem" tabindex="-1">Delete</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <nav>
+          <ul class="pagination">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li class="active"><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- Start Footer -->
+    <div class="row" id="footer">
+      <div class="col-xs-12">
+        &copy; 2017 Service Student Account
+      </div>
+    </div>
+  </div>
+  <!-- Include Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
