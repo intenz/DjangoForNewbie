@@ -1,0 +1,67 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Service Student Account {% block meta_title %}{% endblock meta_title %}</title>
+  <meta name="description" value="Service Student Account">
+  <!-- Include Styles -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  {% block extra_css %}{% endblock extra_css %}
+</head>
+<body>
+  <!-- Start Container -->
+  <div class="container">
+    <!-- Start Header -->
+    <div class="row" id="header">
+      <!-- logo -->
+      <div class="col-xs-8">
+        <h1>Service Student Account</h1>
+      </div>
+      <!-- Groups Selector -->
+      <div class="col-xs-4" id="group-selector">
+        <strong>Groug:</strong>
+        <select>
+          <option value="">All Students</option>
+          <option value="">MTM - 21, Podoba Vitaliy (N 254)</option>
+          <option value="">MTM - 22, Korost Andriy (N 2123)</option>
+        </select>
+      </div>
+    </div>
+    <!-- Start SubHeader -->
+    <div class="row" id="sub-header">
+      <div class="col-xs-12">
+        <ul class="nav nav-tabs" role="tablist">
+          <li {% if request.path == '/' %}class="active"{% endif %} role="presentation"><a href="{% url 'home' %}">Students</a></li>
+          <li {% if '/journal' in request.path %}class="active"{% endif %} role="presentation"><a href="/journal">Journal</a></li>
+          <li {% if '/groups' in request.path %}class="active"{% endif %}role="presentation"><a href="{% url 'groups' %}">Groups</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Start Main Pga Content -->
+    <div class="row" id="content-columns">
+      <div class="col-xs-12" id="content-column">
+        <!-- Status Message -->
+        {% comment 'Not used alert so far' %}
+        <div class="alert alert-warning">Changes have been canceled.</div>
+        {% endcomment %}
+        <h2>{% block title %}{% endblock title %}</h2>
+        {% block content %}{% endblock content %}
+      </div>
+    </div>
+    <!-- Start Footer -->
+    <div class="row" id="footer">
+      <div class="col-xs-12">
+        &copy; 2017 Service Student Account
+      </div>
+    </div>
+  </div>
+  <!-- Include Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  {% block extra_js %}{% endblock extra_js %}
+</body>
+</html>
