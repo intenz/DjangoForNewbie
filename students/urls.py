@@ -1,5 +1,8 @@
 from django.conf.urls import url
 from . import views
+from django.conf import settings
+from django.views.static import serve
+
 
 urlpatterns = [
     # Students urls
@@ -14,3 +17,10 @@ urlpatterns = [
     url(r'^groups/(?P<gid>\d+)/edit/$', views.groups_edit, name='groups_edit'),
     url(r'^groups/(?P<gid>\d+)/delete/$', views.groups_delete, name='groups_delete'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', serve, {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+    ]

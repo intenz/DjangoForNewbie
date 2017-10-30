@@ -2,4 +2,5 @@
 *∼,
 *.egg-info,
 *.mo,
-*.egg
+*.egg,
+demo_data.json
